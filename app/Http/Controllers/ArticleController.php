@@ -32,18 +32,49 @@ class ArticleController extends Controller
        
 
 
-        // $a= new Article;
-        // $a->titre=$request->input('titre');
-        // $a->description=$request->input('description');
-        // $a->contenu=$request->input('contenu');
-        // $a->categorie_id=$request->input('select');
-        
-        // $a->save();
+         $a= new Article;
+         $a->titre=$request->input('titre');
+         $a->description=$request->input('description');
+         $a->contenu=$request->input('contenu');
+         $a->categorie_id=$request->input('categorie_id');
+      
+        //  $validatedData = $request->validate([
+        //     'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+   
+        //    ]);
+        //    $request->validate([
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
 
-         $a=  Article::create($request->all());
-        $r= new ArticleResource($a);
+        //    $image      =       time().'.'.$request->image->extension();
+
+         // $request->image->move(public_path('images'), $image);
+   
+          // $image      =       Image::create(["image" => $image]);
+        //    $path = $request->file('image')->store('public/images');
+
+
+
+        // $image =$request->input('image');
+
+        // $path = public_path('images/' . $image);
+        // Image::make($request->input('image'))->save($path);
+
+       // $file = $request->file('image')->store('public/images');
+        
+
+        $a->image=$request->input('image');
+      
+      
+       
+       
+        
+         $a->save();
+
+        //  $a=  Article::create($request->all());
+        // $r= new ArticleResource($a);
  
-        return response()->json( $r,201);
+        return response()->json( $a,201);
     }
 
     /**

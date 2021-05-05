@@ -1,0 +1,19 @@
+.div1footer{
+    background-color: rgb(182, 212, 52);
+    padding: 16px 0;
+}
+.div1footer form{
+    display: flex;
+flex-direction: row;
+justify-content: space-between;
+width: 60%;
+margin-left: auto;
+margin-right: auto;
+}
+.div2footer{
+    background-color: rgb(51,51,51);
+    padding: 20px 0;
+}
+.style{
+    font-family: 'Texturina', serif;
+}
