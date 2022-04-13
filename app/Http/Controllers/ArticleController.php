@@ -41,7 +41,7 @@ class ArticleController extends Controller
         //  $validatedData = $request->validate([
         //     'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
    
-        //    ]);
+           //]);
         //    $request->validate([
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // ]);
@@ -61,9 +61,22 @@ class ArticleController extends Controller
         // Image::make($request->input('image'))->save($path);
 
        // $file = $request->file('image')->store('public/images');
+
+       // $this->validate($request('image'->'required|image');
+
+    $original_name =  $request->image->getClientOriginalName();
+
+    $filename =  pathinfo($original_name,PATHINFO_FILENAME); 
+
+    $extension =  $request->image->getClientOriginalExtension(); 
+
+    $filename_store = $filename.time().'.'.$extension;
+
+    $request->image->move('images', $filename_store);
+    $a->image = 'images/' .$filename_store ;
         
 
-        $a->image=$request->input('image');
+        //$a->image=$request->input('image');
       
       
        
